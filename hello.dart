@@ -1,3 +1,5 @@
 void main(List<String> args) {
-print(args.join(' '));
+    if (args.isEmpty) {
+        print('Fehler!');
+    }
 }
