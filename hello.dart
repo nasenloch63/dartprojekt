@@ -1,3 +1,3 @@
 void main(List<String> args) {
-print(args[0]);
+print(args.join(' '));
 }
