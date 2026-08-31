@@ -6,4 +6,3 @@ void main(List<String> args) {
         print('Hallo $args.join(' ')}!');
     }
 }
-
