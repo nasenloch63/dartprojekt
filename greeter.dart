@@ -1,6 +1,6 @@
 import 'dart:io';
 void main() { 
+  string? vorname;
   stdout.write('Vorname: ');
-  String? vorname = stdin.readLineSync();
   print(vorname);
 }
