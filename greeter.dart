@@ -1,6 +1,9 @@
 import 'dart:io';
 void main() { 
-  string? vorname;
-  stdout.write('Vorname: ');
+  String? vorname;
+  while (vorname == null || vorname.isEmpty) {
+    stdout.write('Vorname_ ');
+    vorname = stdin.readLineSync();
+  }
   print(vorname);
 }
