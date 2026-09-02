@@ -6,12 +6,12 @@ void main() {
     vorname = stdin.readLineSync();
   }
   print(vorname);
+  void frageNachname() {
+    String? nachname;
+    while (nachname == null || nachname.isEmpty) {
+      stdout.write('Nachname: ');
+      nachname = stdin.readLineSync();
+    }
+    print(nachname);
 }
-void frageNachname() {
-  String? frageNachname;
-  while (frageNachname == null || frageNachname.isEmpty) {
-    stdout.write('Nachname: ');
-    frageNachname = stdin.readLineSync();
-  }
-  print(frageNachname);
 }
