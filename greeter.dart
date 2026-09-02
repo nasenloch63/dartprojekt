@@ -7,3 +7,11 @@ void main() {
   }
   print(vorname);
 }
+void frageNachname() {
+  String? frageNachname;
+  while (frageNachname == null || frageNachname.isEmpty) {
+    stdout.write('Nachname: ');
+    frageNachname = stdin.readLineSync();
+  }
+  print(frageNachname);
+}
