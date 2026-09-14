@@ -3,10 +3,11 @@ import 'dart:io';
 void main() {
   String? vorname;
   
-  while (vorname = null);
-  print("Fehler!"); 
-  else (print("Vorname?"));
+  print("Vorname?");
   vorname = stdin.readLineSync();
-  
-  print(vorname);
+
+  while (vorname == null || vorname.isEmpty) {
+  print("Fehler!"); 
+  }
+  print("Ich grüße dich $vorname!");
 }
