@@ -1,11 +1,16 @@
 import 'dart:io';
 
+enum Geschlecht {
+  M,
+  W
+}
 void main() {
-  String? vorname;
-  String? nachname;
-  String? alterEingabe;
-  int? age;
-  String? sex;
+  String? vorname;   // texteingabe vorname
+  String? nachname;   // texteingabe nachname
+  String? alterEingabe; // altereingabe "21" kommt als Text rein
+  int? age; // auch alterseingabe aber brauchen wir damit text als zahl 21 gesehen wird
+  String? geschlechtEingabe; // eingabe von geschlecht M F
+  Geschlecht? sex; // geschlechter klasse M F speicherort 
 
 // abfrage nach Vorname
   print("Vorname, Nachname, Alter, M/F?");
@@ -23,18 +28,20 @@ void main() {
   }
 // abfrage nach Alter
   
-  
-  }
   print("Vorname, Nachname, Alter, M/F?");
   alterEingabe = stdin.readLineSync();
+
   if (alterEingabe != null) {
     age = int.tryParse(alterEingabe);
   }
-  while (alterEingabe == null || alterEingabe.isEmpty) {
+  while (age == null || age < 0 || age > 150) {
   print("Fehler! Bitte Vorname erneut eingeben: Max, Mustermann, 21, M");
+  alterEingabe = stdin.readLineSync();
   age = int.tryParse(alterEingabe ?? '');
   }
-
+  // frage nach geschlecht 
+  print("Vorname, Nachname, Alter, M/F?");
+  geschlechtEingabe = stdin.readLineSync(); 
 //ausgabe greeter mit Vor Nachname Alter und Age
   print("Ich grüße dich $vorname!");
 }
