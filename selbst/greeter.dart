@@ -23,10 +23,13 @@ void main() {
   }
 // abfrage nach Alter
   
+  
+  }
+  print("Vorname, Nachname, Alter, M/F?");
+  alterEingabe = stdin.readLineSync();
   if (alterEingabe != null) {
     age = int.tryParse(alterEingabe);
   }
-  print("Vorname, Nachname, Alter, M/F?");
   while (alterEingabe == null || alterEingabe.isEmpty) {
   print("Fehler! Bitte Vorname erneut eingeben: Max, Mustermann, 21, M");
   age = int.tryParse(alterEingabe ?? '');
