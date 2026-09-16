@@ -13,34 +13,34 @@ void main() {
   Geschlecht? sex; // geschlechter klasse M F speicherort 
 
 // abfrage nach Vorname
-  print("Vorname, Nachname, Alter, M/F?");
+  print("Vorname?");
   vorname = stdin.readLineSync();
   while (vorname == null || vorname.isEmpty) {
-  print("Fehler! Bitte Vorname erneut eingeben: Max, Mustermann, 21, M");
+  print("Fehler! Bitte Vorname erneut eingeben.");
   vorname = stdin.readLineSync(); 
   }
 // abfrage nach Nachname
-  print("Vorname, Nachname, Alter, M/F?");
+  print("Nachname?");
   nachname = stdin.readLineSync();
   while (nachname == null || nachname.isEmpty) {
-  print("Fehler! Bitte Namen erneut eingeben: Max, Mustermann, 21, M");
+  print("Fehler! Bitte Namen erneut eingeben.");
   nachname = stdin.readLineSync(); 
   }
 // abfrage nach Alter
   
-  print("Vorname, Nachname, Alter, M/F?");
+  print("Alter?");
   alterEingabe = stdin.readLineSync();
 
   if (alterEingabe != null) {
     age = int.tryParse(alterEingabe);
   }
   while (age == null || age < 0 || age > 150) {
-  print("Fehler! Bitte Alter erneut eingeben: Max, Mustermann, 21, M");
+  print("Fehler! Bitte Alter erneut eingeben.");
   alterEingabe = stdin.readLineSync();
   age = int.tryParse(alterEingabe ?? '');
   }
   // frage nach geschlecht 
-  print("Vorname, Nachname, Alter, M/F?");
+  print("M/F?");
   geschlechtEingabe = stdin.readLineSync(); 
   if (geschlechtEingabe == "M") {
     sex = Geschlecht.M;
@@ -49,8 +49,27 @@ void main() {
     sex = Geschlecht.F;
   }
   while (sex == null) {
+  print("Fehler! Du bist entweder M oder W!");
     print("M/F");
+    geschlechtEingabe = stdin.readLineSync();
+    if (geschlechtEingabe == "M") {
+      sex = Geschlecht.M;
+    }
+    else if (geschlechtEingabe == "F") {
+      sex = Geschlecht.F;
+    }
   }
-//ausgabe greeter mit Vor Nachname Alter und Age
-  print("Ich grüße dich $vorname!");
+//ausgaben variationen
+if (age < 40) {
+print("Hallo, $vorname!");
+}
+else { 
+  int? stunde = DateTime.now().hour;
+  if (stunde < 12 ) {
+    print("Guten Morgen $vorname $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+  }
+  else if (stunde < 18 ) {
+    print("Guten Tag $vorname $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+  }
+  }
 }
