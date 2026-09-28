@@ -8,15 +8,13 @@ void main() {
   print("Wie oft maximal würfeln?");
   limitEingabe = stdin.readLineSync();
   limit = int.tryParse(limitEingabe ?? '');
-  if (limit != null) {
+  
+  while (limit == null) {
+    print("Falsche Eingabe! Gib eine Zahl ein!");
+    limitEingabe = stdin.readLineSync();
+    limit = int.tryParse(limitEingabe ?? '');
+  }
     for (var i = 0; i < limit; i++) {
       print(rng.nextInt(6) + 1);
-  }
-  }
-  else {
-    print("Falsche Eingabe! Gib eine Zahl ein!");
-  }
-  while (limit == null || limit.isEmpty) {
-    print("")
   }
 }
