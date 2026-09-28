@@ -1,14 +1,16 @@
 import 'dart:math';
-
-
-
-int? = liste
+import 'dart:io';
 
 void main() {
   var rng = Random();
-  for (var i = 0; i < 10; i++) {
-    print(rng.nextInt(6));
+  String? limitEingabe;
+  int? limit;
+  print("Wie oft maximal würfeln?");
+  limitEingabe = stdin.readLineSync();
+  limit = int.tryParse(limitEingabe ?? '');
+  if (limit != null) {
+    for (var i = 0; i < limit; i++) {
+    print(rng.nextInt(6) + 1);
   }
-
-  
+}
 }

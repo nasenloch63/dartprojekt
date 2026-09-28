@@ -11,7 +11,7 @@ void main() {
   int? age; // auch alterseingabe aber brauchen wir damit text als zahl 21 gesehen wird
   String? geschlechtEingabe; // eingabe von geschlecht M F
   Geschlecht? sex; // geschlechter klasse M F speicherort 
-
+  String? anrede;
 // abfrage nach Vorname
   print("Vorname?");
   vorname = stdin.readLineSync();
@@ -60,16 +60,25 @@ void main() {
     }
   }
 //ausgaben variationen
+if (sex == Geschlecht.M) {
+  anrede = "Herr";
+}
+else if (sex == Geschlecht.F) {
+  anrede = "Frau";
+}
 if (age < 40) {
 print("Hallo, $vorname!");
 }
 else { 
   int? stunde = DateTime.now().hour;
   if (stunde < 12 ) {
-    print("Guten Morgen $vorname $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+    print("Guten Morgen $anrede $nachname! Sie sind $age Jahre alt & $geschlechtEingabe!");
   }
   else if (stunde < 18 ) {
-    print("Guten Tag $vorname $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+    print("Guten Tag $anrede $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+  }
+  else {
+    print("Guten Abend $anrede $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
   }
   }
 }
