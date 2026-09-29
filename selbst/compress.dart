@@ -6,16 +6,19 @@ void main() {
   print("Welchen String möchtest du komprimieren?");
   eingabe = stdin.readLineSync();
   for (int i = 0; i < eingabe!.length; i++) {
-    print(eingabe[i]);
-
   if (i + 1 < eingabe.length && eingabe[i] == eingabe[i + 1]) {
     anzahl++;
   }
   else {
     if (anzahl >= 3) {
-      print(eingabe);
+      print("${eingabe[i]}$anzahl");
     }
+    else {
+      for (int j = 0; j < anzahl; j++) {
+        print(eingabe[i]);
+      }
+    }
+     anzahl = 1;
   }
-
   }
 }
