@@ -8,8 +8,14 @@ void main() {
   for (int i = 0; i < eingabe!.length; i++) {
     print(eingabe[i]);
 
-  if (eingabe[i] == eingabe[i+1] && eingabe[i] == eingabe[i + 1]) {
+  if (i + 1 < eingabe.length && eingabe[i] == eingabe[i + 1]) {
     anzahl++;
   }
+  else {
+    if (anzahl >= 3) {
+      print(eingabe);
+    }
+  }
+
   }
 }
