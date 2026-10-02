@@ -1,8 +1,7 @@
 void main(List<String> args) {
   if (args.isEmpty) {
     print("Hallo!");
-  }
-   else { 
+  } else {
     print("Hallo ${args.join(' ')}!");
-   }
+  }
 }
