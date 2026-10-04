@@ -1,26 +1,27 @@
 import 'dart:io';
 
 void main() {
-  String? eingabe;
-  int anzahl = 1;
-  String ergebnis = "";
   print("Welchen String möchtest du komprimieren?");
-  eingabe = stdin.readLineSync() ?? "";
-  for (int i = 0; i < eingabe.length; i++) {
-  if (i + 1 < eingabe.length && eingabe[i] == eingabe[i + 1]) {
-    anzahl++;
-  }
-  else {
-    if (anzahl >= 3) {
-      ergebnis += "${eingabe[i]}$anzahl";
-    }
-    else {
-      for (int j = 0; j < anzahl; j++) {
-        ergebnis += "${eingabe[i]}";
+  final eingabe = stdin.readLineSync() ?? "";
+  print(compress(eingabe));
+}
+
+String compress(String s) {
+  var ergebnis = "";
+  var anzahl = 1;
+  for (var i = 0; i < s.length - 1; i++) {
+    if (s[i] == s[i + 1]) {
+      anzahl++;
+    } else {
+      if (anzahl >= 3) {
+        ergebnis += "${s[i]}$anzahl";
+      } else {
+        for (int j = 0; j < anzahl; j++) {
+          ergebnis += "${s[i]}";
+        }
       }
+      anzahl = 1;
     }
-     anzahl = 1;
   }
-  }
-  print(ergebnis);
+  return ergebnis;
 }
