@@ -5,25 +5,13 @@ enum Geschlecht { m, f }
 void main() {
   final vorname = getVorname(); // texteingabe vorname
   final nachname = getNachname(); // texteingabe nachname
-  String? alterEingabe; // altereingabe "21" kommt als Text rein
-  int? age; // auch alterseingabe aber brauchen wir damit text als zahl 21 gesehen wird
+  final age = getAlter(); // funktion Alter
+  int? alter; // auch alterseingabe aber brauchen wir damit text als zahl 21 gesehen wird
+  
   String? geschlechtEingabe; // eingabe von geschlecht M F
   Geschlecht? sex; // geschlechter klasse M F speicherort
   String? anrede;
-  
-  // abfrage nach Alter
 
-  print("Alter?");
-  alterEingabe = stdin.readLineSync();
-
-  if (alterEingabe != null) {
-    age = int.tryParse(alterEingabe);
-  }
-  while (age == null || age < 0 || age > 150) {
-    print("Fehler! Bitte Alter erneut eingeben.");
-    alterEingabe = stdin.readLineSync();
-    age = int.tryParse(alterEingabe ?? '');
-  }
   // frage nach geschlecht
   print("M/F?");
   geschlechtEingabe = stdin.readLineSync();
@@ -82,4 +70,17 @@ String getNachname() {
     nachname = stdin.readLineSync();
   }
   return nachname;
+  }
+
+  int? getAlter() {
+    //abfrage nach Alter
+    print("Alter?");
+    var alterEingabe = stdin.readLineSync();
+    int? alter = int.tryParse(alterEingabe ?? '');
+    while (alter == null || alter < 0 || alter > 150) {
+    print("Fehler! Bitte Alter erneut eingeben.");
+    alterEingabe = stdin.readLineSync();
+    alter = int.tryParse(alterEingabe ?? '');
+    }
+    return alter;
   }
