@@ -6,28 +6,24 @@ void main() {
   final vorname = getVorname(); // texteingabe vorname
   final nachname = getNachname(); // texteingabe nachname
   final age = getAlter(); // funktion Alter
-  final geschlecht = getGeschlecht();
-  String? anrede;
+  final geschlecht = getGeschlecht(); // funktion für sex
+  final anrede = getAnrede(geschlecht); // funktion für Anrede
 
-  //ausgaben variationen
-  if (geschlecht == Geschlecht.m) {
-    anrede = "Herr";
-  } else if (geschlecht == Geschlecht.f) {
-    anrede = "Frau";
-  }
+  
   if (age < 40) {
     print("Hallo, $vorname!");
   } else {
     int? stunde = DateTime.now().hour;
     if (stunde < 12) {
-      print("Guten Morgen $anrede $nachname! Sie sind $age Jahre alt & $geschlecht!");
+      print("Guten Morgen $anrede $nachname! Sie sind $age Jahre alt");
     } else if (stunde < 18) {
-      print("Guten Tag $anrede $nachname! Du bist $age Jahre alt & $geschlecht!");
+      print("Guten Tag $anrede $nachname! Du bist $age Jahre alt!");
     } else {
-      print("Guten Abend $anrede $nachname! Du bist $age Jahre alt & $geschlecht!");
-    }
+      print("Guten Abend $anrede $nachname! Du bist $age Jahre alt!");
+      }
   }
-}
+  }
+
 
 String getVorname() {
   // abfrage nach Vorname
@@ -75,5 +71,13 @@ Geschlecht getGeschlecht() {
     }
     print("Fehler! Du bist entweder M oder F!");
     print("M/F");
+  }
+}
+
+String getAnrede(Geschlecht geschlecht) {
+  if(geschlecht == Geschlecht.m) {
+    return "Herr";
+  } else {
+    return "Frau";
   }
 }
