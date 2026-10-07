@@ -1,19 +1,20 @@
 import 'dart:io';
 
-import 'greeter.dart';
-
 void main() {
   final eingabe = getEingabe();
   final ergebnis = compress(eingabe);
-  print("Welchen String möchtest du komprimieren?");
-  final eingabe = stdin.readLineSync() ?? "";
   print(ergebnis);
 }
 
 
+String getEingabe() {
+  print("Welchen String möchtest du komprimieren?");
+  var eingabe = stdin.readLineSync() ?? "";
+  return eingabe;
+} 
 String compress(String s) {
-  var ergebnis = "";
   var anzahl = 1;
+  var ergebnis = "";
   for (var i = 0; i < s.length - 1; i++) {
     if (s[i] == s[i + 1]) {
       anzahl++;
@@ -25,8 +26,6 @@ String compress(String s) {
           ergebnis += "${s[i]}";
         }
       }
-      anzahl = 1;
     }
-  }
-  return ergebnis;
+  } return ergebnis;
 }
