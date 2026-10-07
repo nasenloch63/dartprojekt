@@ -6,7 +6,6 @@ void main() {
   print(ergebnis);
 }
 
-
 String getEingabe() {
   print("Welchen String möchtest du komprimieren?");
   var eingabe = stdin.readLineSync() ?? "";

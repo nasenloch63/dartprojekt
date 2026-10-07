@@ -1,18 +1,26 @@
 import 'dart:io';
 
 void main() {
-  print("Welcher String soll dekomprimiert werden?");
-  String eingabe = stdin.readLineSync() ?? "";
+  final eingabe = getEingabe();
+  final ergebnis = decompress(eingabe);
+  print(ergebnis);
+}
 
+String getEingabe() {
+  print("Welcher String soll dekomprimiert werden?");
+  var eingabe = stdin.readLineSync() ?? "";
+  return eingabe;
+}
+String decompress(String s) {
   var ergebnis = "";
 
-  for (var i = 0; i < eingabe.length; i++) {
-    final zeichen = eingabe[i];
+  for (var i = 0; i < s.length; i++) {
+    final zeichen = s[i];
 
     if (int.tryParse(zeichen) == null) {
       var zahlText = "";
 
-      while (i + 1 < eingabe.length && int.tryParse(eingabe[i + 1]) != null) {
+      while (i + 1 < s.length && int.tryParse(eingabe[i + 1]) != null) {
         zahlText += eingabe[i + 1];
         i++;
       }
