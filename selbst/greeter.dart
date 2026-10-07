@@ -6,34 +6,13 @@ void main() {
   final vorname = getVorname(); // texteingabe vorname
   final nachname = getNachname(); // texteingabe nachname
   final age = getAlter(); // funktion Alter
-  int? alter; // auch alterseingabe aber brauchen wir damit text als zahl 21 gesehen wird
-  
-  String? geschlechtEingabe; // eingabe von geschlecht M F
-  Geschlecht? sex; // geschlechter klasse M F speicherort
+  final geschlecht = getGeschlecht();
   String? anrede;
 
-  // frage nach geschlecht
-  print("M/F?");
-  geschlechtEingabe = stdin.readLineSync();
-  if (geschlechtEingabe == "M") {
-    sex = Geschlecht.m;
-  } else if (geschlechtEingabe == "F") {
-    sex = Geschlecht.f;
-  }
-  while (sex == null) {
-    print("Fehler! Du bist entweder M oder W!");
-    print("M/F");
-    geschlechtEingabe = stdin.readLineSync();
-    if (geschlechtEingabe == "M") {
-      sex = Geschlecht.m;
-    } else if (geschlechtEingabe == "F") {
-      sex = Geschlecht.f;
-    }
-  }
   //ausgaben variationen
-  if (sex == Geschlecht.m) {
+  if (geschlecht == Geschlecht.m) {
     anrede = "Herr";
-  } else if (sex == Geschlecht.f) {
+  } else if (geschlecht == Geschlecht.f) {
     anrede = "Frau";
   }
   if (age < 40) {
@@ -41,11 +20,11 @@ void main() {
   } else {
     int? stunde = DateTime.now().hour;
     if (stunde < 12) {
-      print("Guten Morgen $anrede $nachname! Sie sind $age Jahre alt & $geschlechtEingabe!");
+      print("Guten Morgen $anrede $nachname! Sie sind $age Jahre alt & $geschlecht!");
     } else if (stunde < 18) {
-      print("Guten Tag $anrede $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+      print("Guten Tag $anrede $nachname! Du bist $age Jahre alt & $geschlecht!");
     } else {
-      print("Guten Abend $anrede $nachname! Du bist $age Jahre alt & $geschlechtEingabe!");
+      print("Guten Abend $anrede $nachname! Du bist $age Jahre alt & $geschlecht!");
     }
   }
 }
@@ -66,14 +45,14 @@ String getNachname() {
   print("Nachname?");
   var nachname = stdin.readLineSync();
   while (nachname == null || nachname.isEmpty) {
-    print("Fehler, Bitte Nachnamen erneut eingeben.");
+    print("Fehler, bitte Nachnamen erneut eingeben.");
     nachname = stdin.readLineSync();
   }
   return nachname;
-  }
+}
 
-  int? getAlter() {
-    //abfrage nach Alter
+int getAlter() { // auch alterseingabe aber brauchen wir damit text als zahl 21 gesehen wird
+ //abfrage nach Alter
     print("Alter?");
     var alterEingabe = stdin.readLineSync();
     int? alter = int.tryParse(alterEingabe ?? '');
@@ -83,4 +62,18 @@ String getNachname() {
     alter = int.tryParse(alterEingabe ?? '');
     }
     return alter;
+}
+
+Geschlecht getGeschlecht() {
+  print("M/F");
+  while (true) {
+    var geschlecht = stdin.readLineSync();
+    if (geschlecht == "M") {
+      return Geschlecht.m;
+    } else if (geschlecht == "F") {
+      return Geschlecht.f;
+    }
+    print("Fehler! Du bist entweder M oder F!");
+    print("M/F");
   }
+}
