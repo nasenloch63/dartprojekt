@@ -1,10 +1,15 @@
 import 'dart:io';
 
+import 'greeter.dart';
+
 void main() {
+  final eingabe = getEingabe();
+  final ergebnis = compress(eingabe);
   print("Welchen String möchtest du komprimieren?");
   final eingabe = stdin.readLineSync() ?? "";
-  print(compress(eingabe));
+  print(ergebnis);
 }
+
 
 String compress(String s) {
   var ergebnis = "";
