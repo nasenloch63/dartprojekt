@@ -20,8 +20,8 @@ String decompress(String s) {
     if (int.tryParse(zeichen) == null) {
       var zahlText = "";
 
-      while (i + 1 < s.length && int.tryParse(eingabe[i + 1]) != null) {
-        zahlText += eingabe[i + 1];
+      while (i + 1 < s.length && int.tryParse(s[i + 1]) != null) {
+        zahlText += s[i + 1];
         i++;
       }
 
@@ -33,7 +33,5 @@ String decompress(String s) {
         ergebnis += zeichen * anzahl;
       }
     }
-  }
-
-  print(ergebnis);
+  } return ergebnis;
 }
