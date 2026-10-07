@@ -18,14 +18,23 @@ String compress(String s) {
   for (var i = 0; i < s.length - 1; i++) {
     if (s[i] == s[i + 1]) {
       anzahl++;
-    } else {
+    }  
+    else {
       if (anzahl >= 3) {
-        ergebnis += "${s[i]}$anzahl";
+          ergebnis += "${s[i]}$anzahl";
+        } else {
+          for (int j = 0; j < anzahl; j++) {
+            ergebnis += "${s[i]}";
+          }
+        } anzahl = 1;
+   }
+  }
+      if (anzahl >= 3) {
+        ergebnis += "${s[s.length - 1]}$anzahl";
       } else {
         for (int j = 0; j < anzahl; j++) {
-          ergebnis += "${s[i]}";
+          ergebnis += "${s[s.length - 1]}";
         }
-      }
+      } return ergebnis;
     }
-  } return ergebnis;
-}
+  
