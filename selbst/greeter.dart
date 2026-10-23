@@ -8,9 +8,11 @@ void main() {
   final age = getAlter(); // funktion Alter
   final geschlecht = getGeschlecht(); // funktion für sex
   final anrede = getAnrede(geschlecht); // funktion für Anrede
-
+  greet(vorname, nachname, age, anrede);
+}
   
-  if (age < 40) {
+  void greet(String vorname, String nachname, int age, String anrede) {
+     if (age < 40) {
     print("Hallo, $vorname!");
   } else {
     int? stunde = DateTime.now().hour;
